@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "afrikorture-marketplace",
+  "description": "A virtual community that enable Liberians sell African fashion, crafts, food, etc with ease worldwide. (Kwagei Capstone &amp; cs50 Final Project)",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boakaidorborkamara/Afrikorture-Marketplace.git"
+  },
+  "author": "Boakai Dorbor Kamara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boakaidorborkamara/Afrikorture-Marketplace/issues"
+  },
+  "homepage": "https://github.com/boakaidorborkamara/Afrikorture-Marketplace#readme"
+}
