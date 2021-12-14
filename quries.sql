@@ -1,7 +1,7 @@
 -- -- create vendors table 
 -- CREATE TABLE vendors (
 --     vendor_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL ,
---     name VARCHAR NOT NULL
+--     name VARCHAR NOT NULL UNIQUE
 --     );
 
 -- -- add value to vendor table 
