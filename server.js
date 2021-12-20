@@ -1,19 +1,19 @@
-// updated code 
 // include express 
 const express = require('express');
 const { concat } = require('methods');
 const { all } = require('proxy-addr');
-// enable cross browser orgin (cors) to avoid cors errrors
-const cors = require('cors');
 const app = express();
+
 //create port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 300;
+
 //enable json to be use
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(cors());
-
+// enable cross browser orgin (cors) to avoid cors errrors
+const cors = require('cors');
+app.use(cors());
 
 //include sqlite
 const sqlite3 = require('sqlite3').verbose();
@@ -198,5 +198,3 @@ app.post('/products',(req,res)=>{
 app.listen(port, () => {
   console.log(`Afrikorture app listening at http://localhost:${port}`);
 });
-
-
