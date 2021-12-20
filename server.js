@@ -1,11 +1,18 @@
+// updated code 
 // include express 
 const express = require('express');
 const { concat } = require('methods');
 const { all } = require('proxy-addr');
+// enable cross browser orgin (cors) to avoid cors errrors
+const cors = require('cors');
 const app = express();
+//create port
 const port = process.env.PORT || 3000;
+//enable json to be use
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// app.use(cors());
 
 
 //include sqlite
@@ -23,10 +30,20 @@ let db = new sqlite3.Database('marketplace.db', (err) => {
 
 
 //create get routes
+app.get('/', (req,res) =>{
+  
+        res.send(JSON.stringify({
+          welcome_message: "Welcome to Afrikorture Marketplace API",
+          get_all_vendors: "/vendors",
+          get_all_products: "/products",
+          get_all_stores: "/stores"}));
+    
+});
+
 app.get('/vendors', (req,res) =>{
 
     //query the database
-    sql = 'SELECT * FROM vendors';
+    let sql = 'SELECT * FROM vendors';
     db.all(sql,[],(err,rows)=>{
         if(err){
             throw(err);
@@ -179,7 +196,7 @@ app.post('/products',(req,res)=>{
 
 //notify that the server is running
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Afrikorture app listening at http://localhost:${port}`);
 });
 
 

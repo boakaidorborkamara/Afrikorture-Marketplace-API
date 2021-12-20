@@ -51,11 +51,13 @@
 -- CREATE TABLE products (
 --     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 --     store_id INTEGER NOT NULL,
---     name VARCHAR NOT NULL,
---     description VARCHAR,
---     image VARCHAR,
---     price VARCHAR,
---     category VARCHAR,
+--     name VARCHAR(100) NOT NULL,
+--     description VARCHAR(250),
+--     image VARCHAR(100),
+--     price FLOAT,
+--     -- usage_category VARCHAR,
+--     -- product_category VARCHAR,
+    
 
 --     FOREIGN KEY (store_id)
 --         REFERENCES stores (id)
@@ -77,3 +79,9 @@
 --     '10',
 --     'men'
 -- );
+
+-- -- create product category table 
+-- CREATE TABLE product_category(
+--     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+--     name VARCHAR(20)
+-- )
