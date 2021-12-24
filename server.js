@@ -5,15 +5,15 @@ const { all } = require('proxy-addr');
 const app = express();
 
 //create port
-const port = process.env.PORT || 300;
+const port = process.env.PORT || 3000;
 
 //enable json to be use
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // enable cross browser orgin (cors) to avoid cors errrors
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 
 //include sqlite
 const sqlite3 = require('sqlite3').verbose();
@@ -34,28 +34,11 @@ app.get('/', (req,res) =>{
   
         res.send(JSON.stringify({
           welcome_message: "Welcome to Afrikorture Marketplace API",
-          get_all_vendors: "/vendors",
           get_all_products: "/products",
           get_all_stores: "/stores"}));
     
 });
 
-app.get('/vendors', (req,res) =>{
-
-    //query the database
-    let sql = 'SELECT * FROM vendors';
-    db.all(sql,[],(err,rows)=>{
-        if(err){
-            throw(err);
-        }
-
-        //send database result to the frontend
-        let all_vendors = rows;
-        res.send(JSON.stringify(all_vendors));
-
-    })
-    
-});
 
 app.get('/stores', (req,res) =>{
     // query the databae for all the shops 
@@ -89,30 +72,7 @@ app.get('/products', (req,res) =>{
 
 
 
-// creat post routes 
-app.post('/vendors', (req,res)=>{
-    
-    let data = req.body;
-    console.log(data);
-    // res.send('Got a POST request');
-
-    let sql = `INSERT INTO vendors(name) VALUES(?)`;
-    db.run(sql,data["name"],(err)=>{
-
-        if(err){
-            console.log(err);
-            res.send(
-                {ErrorCode: 1, ErrorMessage: "Unsucessful, vendor not added!"}
-            );
-        }
-        else{
-            console.log("Vendor was added sucessfully!");
-            res.send({code: 1 , message: "Vendor was added sucessfully!"});
-        }
-        
-    })
-});
-
+// create post routes 
 app.post('/stores', (req,res)=>{
     //get user data from frontend
     let data = req.body;
@@ -121,25 +81,30 @@ app.post('/stores', (req,res)=>{
     // insert user data into the database
     //store query statment in a variable
     let sql_query = `INSERT INTO stores( 
-        name,
-        address,
-        county,
-        phone_number,
+        firstName,
+        lastName,
+        userName,
         email,
-        store_description,
-        vendor_id)
-        VALUES(?,?,?,?,?,?,?)`;
+        storeName,
+        storeAddress,
+        county,
+        phoneNumber,
+        socialMediaLink)
+
+        VALUES(?,?,?,?,?,?,?,?,?)`;
 
     //add the user data to the dabase
     db.run(
         sql_query,
-        [data["name"],
-        data["address"],
-        data["county"],
-        data["phone_number"],
-        data["email"],
-        data["store_description"],
-        data["vendor_id"]],
+        [   data["firstName"],
+            data["lastName"],
+            data["userName"],
+            data["email"],
+            data["storeName"],
+            data["storeAddress"],
+            data["county"],
+            data["phoneNumber"],
+            data["socialMediaLink"]],
 
         //see error if the data wasn't added to the database sucessfully.
         (err)=>{

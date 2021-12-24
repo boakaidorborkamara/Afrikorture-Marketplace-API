@@ -11,39 +11,41 @@
 
 -- -- create store table 
 -- CREATE TABLE stores (
---     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
---     name VARCHAR NOT NULL,
---     address VARCHAR NOT NULL,
---     county VARCHAR NOT NULL,
---     phone_number VARCHAR NOT NULL,
---     email VARCHAR 
---     social_media_link VARCHAR,
---     store_description VARCHAR NOT NULL,
---     vendor_id INTEGER NOT NULL,
-
---     FOREIGN KEY (vendor_id)
---         REFERENCES vendors (vendor)
+--         storeId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+--         firstName VARCHAR(50) NOT NULL,
+--         lastName VARCHAR(50) NOT NULL,
+--         userName VARCHAR NOT NULL,
+--         email VARCHAR NOT NULL,
+--         storeName VARCHAR(50) NOT NULL,
+--         storeAddress VARCHAR(50) NOT NULL,
+--         county VARCHAR(50) NOT NULL,
+--         phoneNumber VARCHAR(50) NOT NULL,
+--         socialMediaLink VARCHAR NOT NULL
 --     );
 
 --     -- insert value into store 
 --     INSERT INTO stores (
---         name,
---         address,
---         county,
---         phone_number,
+--         firstName,
+--         lastName,
+--         userName,
 --         email,
---         store_description,
---         vendor_id
---         )
+--         storeName,
+--         storeAddress,
+--         county,
+--         phoneNumber,
+--         socialMediaLink
+--     )
 
 --     VALUES (
+--         'Boakai',
+--         'Kamara',
+--         'boakaikamara1',
+--         'boakaidkamara@gmail.com',
 --         'Bkay Fashion House',
 --         'GSA Road',
 --         'Montserrado',
 --         '0770322706',
---         'bkayfashion@gmail.com',
---         'We love to create things that make our customers happy. We are the best African designer',
---         1
+--         'www.facebook.com'
 --         );
 
 
