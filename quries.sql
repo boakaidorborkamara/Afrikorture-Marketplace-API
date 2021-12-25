@@ -11,29 +11,29 @@
 
 -- -- create store table 
 -- CREATE TABLE stores (
---         storeId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
---         firstName VARCHAR(50) NOT NULL,
---         lastName VARCHAR(50) NOT NULL,
---         userName VARCHAR NOT NULL,
+--         store_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+--         first_name VARCHAR NOT NULL,
+--         last_name VARCHAR NOT NULL,
+--         user_name VARCHAR NOT NULL,
 --         email VARCHAR NOT NULL,
---         storeName VARCHAR(50) NOT NULL,
---         storeAddress VARCHAR(50) NOT NULL,
---         county VARCHAR(50) NOT NULL,
---         phoneNumber VARCHAR(50) NOT NULL,
---         socialMediaLink VARCHAR NOT NULL
+--         store_name VARCHAR NOT NULL,
+--         store_address VARCHAR NOT NULL,
+--         county VARCHAR NOT NULL,
+--         phone_number VARCHAR NOT NULL,
+--         social_media_link VARCHAR NOT NULL
 --     );
 
 --     -- insert value into store 
 --     INSERT INTO stores (
---         firstName,
---         lastName,
---         userName,
+--         first_name,
+--         last_name,
+--         user_name,
 --         email,
---         storeName,
---         storeAddress,
+--         store_name,
+--         store_address,
 --         county,
---         phoneNumber,
---         socialMediaLink
+--         phone_number,
+--         social_media_link
 --     )
 
 --     VALUES (
