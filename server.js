@@ -81,30 +81,30 @@ app.post('/stores', (req,res)=>{
     // insert user data into the database
     //store query statment in a variable
     let sql_query = `INSERT INTO stores( 
-        firstName,
-        lastName,
-        userName,
+        first_name,
+        last_name,
+        user_name,
         email,
-        storeName,
-        storeAddress,
+        store_name,
+        store_address,
         county,
-        phoneNumber,
-        socialMediaLink)
+        phone_number,
+        social_media_link)
 
         VALUES(?,?,?,?,?,?,?,?,?)`;
 
     //add the user data to the dabase
     db.run(
         sql_query,
-        [   data["firstName"],
-            data["lastName"],
-            data["userName"],
+        [   data["first_name"],
+            data["last_name"],
+            data["user_name"],
             data["email"],
-            data["storeName"],
-            data["storeAddress"],
+            data["store_name"],
+            data["store_address"],
             data["county"],
-            data["phoneNumber"],
-            data["socialMediaLink"]],
+            data["phone_number"],
+            data["social_media_link"]],
 
         //see error if the data wasn't added to the database sucessfully.
         (err)=>{
