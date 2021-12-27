@@ -53,12 +53,12 @@
 -- CREATE TABLE products (
 --     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
 --     store_id INTEGER NOT NULL,
---     name VARCHAR(100) NOT NULL,
---     description VARCHAR(250),
+--     name VARCHAR NOT NULL,
+--     description VARCHAR,
 --     image VARCHAR(100),
 --     price FLOAT,
---     -- usage_category VARCHAR,
---     -- product_category VARCHAR,
+--     type VARCHAR,
+--     category VARCHAR,
     
 
 --     FOREIGN KEY (store_id)
@@ -71,15 +71,17 @@
 --     name,
 --     description,
 --     price,
+--     type,
 --     category
 -- )
 
 -- VALUES(
---     1,
---     'Kafa African Shoes',
---     'Made with leather',
---     '10',
---     'men'
+--     3,
+--     'Zona Dress',
+--     'Made with African Fabric',
+--     '30',
+--     'women',
+--     'dress-&-skirt'
 -- );
 
 -- -- create product category table 
