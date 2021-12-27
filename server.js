@@ -39,7 +39,7 @@ app.get('/', (req,res) =>{
     
 });
 
-
+// get all stores 
 app.get('/stores', (req,res) =>{
     // query the databae for all the shops 
     let sql = 'SELECT * FROM stores';
@@ -55,6 +55,7 @@ app.get('/stores', (req,res) =>{
     })
 });
 
+// get all products 
 app.get('/products', (req,res) =>{
      // query the databae for all the shops 
      let sql = 'SELECT * FROM products';
@@ -70,9 +71,241 @@ app.get('/products', (req,res) =>{
      })
 });
 
+// creation of routes for women related products starts ------------------------------------
+// get all women accessories 
+app.get('/women-accessories', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "women" AND type = "accessories"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all women dresses and skirts
+app.get('/women-dress-&-skirt', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "women" AND type = "dress-&-skirt"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all women trousers and pans 
+app.get('/women-trouser-and-pant', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "women" AND type = "trouser"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all women footwear 
+app.get('/women-foot-wear', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "women" AND type = "footwear"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
 
 
-// create post routes 
+
+// creation of routes for men related products starts ------------------------------------
+// get all men accessories 
+app.get('/men-accessories', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "men" AND type = "accessories"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all men trousers and pans 
+app.get('/men-trouser-and-pant', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "men" AND type = "trouser"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all men footwear 
+app.get('/men-foot-wear', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "men" AND type = "footwear"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+
+// creation of routes for beauty related products starts ------------------------------------
+// get all beauty accessories 
+app.get('/beauty-accessories', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "beauty" AND type = "accessories"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all bath and body product 
+app.get('/bath-and-body', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "beauty" AND type = "bath and body"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all hair care products 
+app.get('/hair-care', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "beauty" AND type = "hair care"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+// get all skin care products 
+app.get('/skin-care', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "beauty" AND type = "skin care"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+
+// creation of routes for apartment related products starts ------------------------------------
+// get all men accessories 
+app.get('/home-decoration', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "apartment" AND type = "home decoration"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+
+// creation of routes for food related products starts ------------------------------------
+// get all men accessories 
+app.get('/snacks', (req,res) =>{
+    // query the databae for all the shops 
+    let sql = `SELECT * FROM products WHERE category = "eat" AND type = "snacks"`;
+
+    db.all(sql,[],(err,rows)=>{
+        if(err){
+            throw(err);
+        }
+
+        // send the result to the frontend 
+        let all_products = rows;
+        res.send(JSON.stringify(all_products));
+        console.log(all_products);
+    })
+});
+
+
+
+// create post routes post routes -------------------------------------------------
+// add new store to database 
 app.post('/stores', (req,res)=>{
     //get user data from frontend
     let data = req.body;
@@ -120,6 +353,7 @@ app.post('/stores', (req,res)=>{
     
 })
 
+//add new product to database
 app.post('/products',(req,res)=>{
     //get user data from fronend
     let data = req.body;
@@ -159,7 +393,7 @@ app.post('/products',(req,res)=>{
 
 
 
-//notify that the server is running
+//notify that the server is running------------------------------------------------
 app.listen(port, () => {
   console.log(`Afrikorture app listening at http://localhost:${port}`);
 });

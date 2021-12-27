@@ -57,8 +57,8 @@
 --     description VARCHAR,
 --     image VARCHAR(100),
 --     price FLOAT,
---     type VARCHAR,
 --     category VARCHAR,
+--     type VARCHAR,
     
 
 --     FOREIGN KEY (store_id)
@@ -71,17 +71,17 @@
 --     name,
 --     description,
 --     price,
---     type,
---     category
+--     category,
+--     type
 -- )
 
 -- VALUES(
---     3,
---     'Zona Dress',
---     'Made with African Fabric',
---     '30',
---     'women',
---     'dress-&-skirt'
+--     1,
+--     'Kay Pants',
+--     'Has nice patterns',
+--     '10',
+--     'men',
+--     'trouser'
 -- );
 
 -- -- create product category table 
