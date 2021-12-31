@@ -359,6 +359,7 @@ app.post('/products',(req,res)=>{
     let data = req.body;
     console.log(data);
 
+
     // insert user data into the database
     //store query statment in a variable
     let sql_query = `INSERT INTO products( 
@@ -366,7 +367,7 @@ app.post('/products',(req,res)=>{
         name,
         description,
         price,
-        category,,
+        category,
         type)
        
         VALUES(?,?,?,?,?,?)`;
@@ -376,7 +377,7 @@ app.post('/products',(req,res)=>{
         [data["store_id"],
         data["name"],
         data["description"],
-        data["price"],,
+        data["price"],
         data["category"],
         data["type"]],
         
@@ -387,7 +388,7 @@ app.post('/products',(req,res)=>{
             }
             else{
                 console.log("sucessful");
-                res.send({code: 0 , message:"Sucessful, product not added!"});
+                res.send({code: 0 , message:"Sucessful, product added!"});
             }
         })
 
