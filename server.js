@@ -366,7 +366,8 @@ app.post('/products',(req,res)=>{
         name,
         description,
         price,
-        category)
+        category,,
+        type)
        
         VALUES(?,?,?,?,?)`;
     
@@ -375,8 +376,9 @@ app.post('/products',(req,res)=>{
         [data["store_id"],
         data["name"],
         data["description"],
-        data["price"],
-        data["category"]],
+        data["price"],,
+        data["category"],
+        data["type"]],
         
         (err)=>{
             if(err){
