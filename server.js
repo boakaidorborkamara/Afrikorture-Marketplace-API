@@ -369,7 +369,7 @@ app.post('/products',(req,res)=>{
         category,,
         type)
        
-        VALUES(?,?,?,?,?)`;
+        VALUES(?,?,?,?,?,?)`;
     
     db.run(
         sql_query,
