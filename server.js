@@ -11,6 +11,7 @@ const brand = require('./models/brand');
 const main_category = require('./models/main_category');
 const sub_category = require('./models/sub_category');
 const product = require('./models/product');
+const vendor = require('./models/vendor');
 
 
 
