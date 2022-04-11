@@ -2,11 +2,14 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.18.0",
     "sqlite": "^4.0.23",
     "sqlite3": "^4.2.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "nodemon server.js"
   },
   "name": "afrikorture-marketplace",
   "description": "A virtual community that enable Liberians sell African fashion, crafts, food, etc with ease worldwide. (Kwagei Capstone &amp; cs50 Final Project)",
