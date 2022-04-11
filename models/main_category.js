@@ -1,4 +1,7 @@
 //create main category table 
+const {Sequelize, DataTypes, Model} = require("sequelize");
+const sequelize = require('../db_config/db_config.js');
+
 const mainCategory = sequelize.define('mainCategory', {
     id:{
         type: DataTypes.INTEGER,
@@ -17,3 +20,5 @@ const mainCategory = sequelize.define('mainCategory', {
 
 // verify if main category module was created
 console.log(mainCategory === sequelize.models.mainCategory);
+
+module.exports = {mainCategory};

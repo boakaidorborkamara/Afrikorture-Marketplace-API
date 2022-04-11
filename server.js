@@ -7,8 +7,8 @@ const app = express();
 
 // connect db 
 const sequelize = require('./db_config/db_config');
-const brand = require('./module/brand');
-sequelize.sync
+const brand = require('./models/brand');
+
 
 
 
