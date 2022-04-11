@@ -2,6 +2,7 @@
 const {Sequelize, DataTypes, Model} = require("sequelize");
 const {sequelize} = require('../db_config/db_config.js');
 
+
 //create main category model
 const mainCategory = sequelize.define('mainCategory', {
     id:{
