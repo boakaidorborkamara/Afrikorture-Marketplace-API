@@ -3,7 +3,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 const {sequelize} = require('../db_config/db_config.js');
 
 
-//Create brand module
+//Create brand model
 const Brand = sequelize.define('Brand', {
     id:{
         type:DataTypes.INTEGER,
@@ -47,7 +47,7 @@ const Brand = sequelize.define('Brand', {
 });
 
 
-//verify that module was successfully created
+//verify that model was successfully created
 console.log(Brand === sequelize.models.Brand);
 
 

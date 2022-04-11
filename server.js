@@ -8,6 +8,7 @@ const app = express();
 // connect db 
 const sequelize = require('./db_config/db_config');
 const brand = require('./models/brand');
+const mainCategory = require('./models/main_category');
 
 
 
