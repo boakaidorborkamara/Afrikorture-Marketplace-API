@@ -51,15 +51,5 @@ const Brand = sequelize.define('Brand', {
 console.log(Brand === sequelize.models.Brand);
 
 
-//create table from module
-(async function(){
-    await Brand.sync({force:true})
-    .catch(()=>{
-        console.error();
-    }) 
 
-    // verify if Product module was created
-    console.log("The table for the Brand model was just (re)created!");
-})();
-
-
+module.exports = {Brand}

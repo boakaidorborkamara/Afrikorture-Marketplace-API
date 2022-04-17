@@ -16,9 +16,9 @@ sequelize.authenticate()
         console.error('Unable to connect to the database:', error);
     }
 })
-.finally(()=>{
-    sequelize.close();
-});
+// .finally(()=>{
+//     sequelize.close();
+// });
 
 
 // export the sequelize function 

@@ -2,10 +2,6 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const {sequelize} = require('../db_config/db_config');
 
-//model for foreign key
-const Brand = require('./brand');
-const Product = require('./product');
-
 
 // define model for Vendor 
 const Vendor = sequelize.define('Vendor', {
@@ -34,14 +30,6 @@ const Vendor = sequelize.define('Vendor', {
     },
     date_of_birth:{
         type:DataTypes.DATEONLY
-    },
-    brand_id:{
-        type:DataTypes.INTEGER,
-
-        references:{
-            model:Brand,
-            key: "id"
-        }
     }
 },
 {
@@ -50,18 +38,8 @@ const Vendor = sequelize.define('Vendor', {
 })
 
 
-// verify if Product module was created
-console.log(Product === sequelize.models.Product);
-
-
-(async function(){
-    await Vendor.sync({force:true})
-    .catch(()=>{
-        console.error();
-    })
-
-    console.log("The table for the Vendor model was jus (re)created!");
-})();
+// verify if Product model was created
+console.log(Vendor === sequelize.models.Vendor);
 
 
 module.exports ={Vendor};
