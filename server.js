@@ -30,7 +30,7 @@ app.use(main_category);
 app.use(sub_category);
 
 
-
+//notify which port server is listening on
 app.listen(port, ()=>{
     console.log("Server is listening to " + port);
 })
