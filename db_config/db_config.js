@@ -24,7 +24,19 @@ database.serialize(()=>{
             price FLOAT,
             first_image STRING,
             second_image STRING,
-            third_image STRING
+            third_image STRING,
+            brand_id INTEGER,
+            main_category INTEGER,
+            sub_category INTEGER,
+
+            FOREIGN KEY(brand_id)
+                REFERENCES brand(id)
+                
+            FOREIGN KEY(main_category)
+                REFERENCES main_category(id)
+
+            FOREIGN KEY(sub_category)
+                REFERENCES sub_category(id) 
         )
     `);
 
