@@ -46,10 +46,15 @@ const Brand = sequelize.define('Brand', {
     timestamps: false
 });
 
+//Brand Association
+function brandAssociation(model_name){
+    Brand.hasOne(model_name.id);
+}
+
 
 //verify that model was successfully created
 console.log(Brand === sequelize.models.Brand);
 
 
 
-module.exports = {Brand}
+module.exports = {Brand, brandAssociation}

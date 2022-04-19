@@ -2,48 +2,36 @@
 const express = require('express');
 
 
+//connect to database
+const db = require('./db_config/db_config');
+
+
 //create express app
 const app = express();
 
 
-//database
-const {sequelize} = require('./db_config/db_config');
-
-const brand = require('./models/brand');
-const main_category = require('./models/main_category');
-const sub_category = require('./models/sub_category');
-const product = require('./models/product');
-const vendor = require('./models/vendor');
+//port
+const port = 3000 | process.env.PORT;
 
 
-// configure the relationship between tables 
-// vendor.hasOne(brand);
+//ROUTES]
+const index_router = require('./router/index_router');
+const product_router = require('./router/product_router');
+const vendor_router = require('./router/vendor_router');
+const brand_router = require('./router/brand_router');
+const main_category = require('./router/main_category_router');
+const sub_category = require('./router/sub_category_router');
 
-
-
-//create a sql table from each  model
-(async ()=>{
-    await sequelize.sync({force:true})
-    .catch((err)=>{
-        console.log(err);
-    });
-
-    console.log("All tables were created sucessfully");
-})();
+app.use(index_router);
+app.use(product_router);
+app.use(vendor_router);
+app.use(brand_router);
+app.use(main_category);
+app.use(sub_category);
 
 
 
-
-
-
-//create port
-const port = process.env.PORT || 3000;
-
-//connect db
-
-//enable parsing form data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-
+app.listen(port, ()=>{
+    console.log("Server is listening to " + port);
+})
 

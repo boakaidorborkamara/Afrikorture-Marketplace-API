@@ -1,27 +1,15 @@
-//connect database
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = new Sequelize('database', 'username', 'password', {
-    dialect: 'sqlite',
-    storage: './marketplace.db'
+const sqlite3 = require('sqlite3').verbose();
+
+//connect to afrikorture database
+const database = new sqlite3.Database('./marketplace.db', (err)=>{
+    if(err){
+        console.log(err);
+        return;
+    }
+
+    //notify if the database is connected successfully
+    console.log("Connected to Afrikorture Databae");
 });
 
 
-//check for error while connecting the database
-sequelize.authenticate()
-.then(
-    console.log("Database connection has been established.")
-)
-.catch((err)=>{
-    if(err){
-        console.error('Unable to connect to the database:', error);
-    }
-})
-// .finally(()=>{
-//     sequelize.close();
-// });
-
-
-// export the sequelize function 
-module.exports = {
-    sequelize
-}
+module.exports = database;
