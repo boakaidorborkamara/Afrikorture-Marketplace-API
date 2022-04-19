@@ -12,4 +12,67 @@ const database = new sqlite3.Database('./marketplace.db', (err)=>{
 });
 
 
+//create Tables
+database.serialize(()=>{
+    //Product table
+    database.run(`
+        CREATE TABLE IF NOT EXISTS product (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name STRING NOT NULL,
+            description STRING ,
+            date_updated DATE,
+            price FLOAT,
+            first_image STRING,
+            second_image STRING,
+            third_image STRING
+        )
+    `);
+
+    //Vendor table
+    database.run(`
+        CREATE TABLE IF NOT EXISTS vendor (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            first_name STRING NOT NULL,
+            middle_name STRING NOT NULL,
+            last_name STRING NOT NULL,
+            email STRING,
+            phone STRING NOT NULL,
+            profile_image STRING,
+            dob DATE
+        )
+    `);
+
+    //Brand table
+    database.run(`
+        CREATE TABLE IF NOT EXISTS brand (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name STRING NOT NULL,
+            description STRING NOT NULL,
+            county STRING NOT NULL,
+            location STRING NOT NULL,
+            email STRING NOT NULL,
+            logo STRING,
+            phone STRING,
+            website STRING,
+            facebook_page STRING,
+            instagram_page STRING
+        )
+    `);
+
+    //main category
+    database.run(`
+        CREATE TABLE IF NOT EXISTS main_category (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name STRING
+        )
+    `);
+
+    database.run(`
+        CREATE TABLE IF NOT EXISTS sub_category (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name STRING
+        )
+    `);
+})
+
 module.exports = database;
