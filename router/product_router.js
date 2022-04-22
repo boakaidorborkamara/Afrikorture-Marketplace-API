@@ -11,7 +11,7 @@ router.get('/product', productController.product_list_get);
 
 
 //Display details about a specific product on GET
-router.get('/product/:id', productController.product_detail_get);
+router.post('/product/:id', productController.product_detail_get);
 
 
 //Display all products base on a specific category GET

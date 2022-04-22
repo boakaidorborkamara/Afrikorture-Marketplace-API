@@ -38,7 +38,10 @@ database.serialize(()=>{
             FOREIGN KEY(sub_category)
                 REFERENCES sub_category(id) 
         )
-    `);
+    `,
+        //notify that this table was created sucessfully 
+        ()=>{console.log('Product table created')}
+    );
 
     //Vendor table
     database.run(`
@@ -50,9 +53,16 @@ database.serialize(()=>{
             email STRING,
             phone STRING NOT NULL,
             profile_image STRING,
-            dob DATE
+            dob DATE,
+            brand_id INTEGER,
+
+            FOREIGN KEY(brand_id)
+                REFERENCES brand(id) 
         )
-    `);
+    `,
+        //notify that this table was created sucessfully 
+        ()=>{console.log('Vendor table created')}
+    );
 
     //Brand table
     database.run(`
@@ -69,7 +79,10 @@ database.serialize(()=>{
             facebook_page STRING,
             instagram_page STRING
         )
-    `);
+    `,
+        //notify that this table was created sucessfully 
+        ()=>{console.log('Brand table created')}
+    );
 
     //main category
     database.run(`
@@ -77,14 +90,21 @@ database.serialize(()=>{
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name STRING
         )
-    `);
+    `,
+        //notify that this table was created sucessfully 
+        ()=>{console.log('Main Category table created')}
+    );
 
+    //sub category
     database.run(`
         CREATE TABLE IF NOT EXISTS sub_category (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name STRING
         )
-    `);
+    `,
+        //notify that this table was created sucessfully 
+        ()=>{console.log('Sub Category table created')}
+    );
 })
 
-module.exports = database;
+module.exports = database;  

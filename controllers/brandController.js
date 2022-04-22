@@ -1,6 +1,19 @@
+const db = require('../db_config/db_config');
+
 //Display listing of all brands.
 exports.brand_list = (req, res)=>{
-    res.send("Working on brand listing");
+    // db.run(`
+    //     SELECT * FROM product
+    // `,
+    //     (err)=>{
+    //         if(err){
+    //             console.log(err);
+    //             return;
+    //         }
+
+    //         console.log("")
+    //     }
+    // )
 };
 
 //Display details for specific brand.
