@@ -39,12 +39,14 @@ exports.product_per_category_get = (req, res)=>{
 
 //Display details for a specific existing product on GET
 exports.product_detail_get = (req, res)=>{
-    let product_id = req.parmas;
+    let product_id = req.params['id'];
+    console.log(product_id);
     let product_details;
 
     db.all(`
-        SELECT * FROM products WHERE id ${product_id}
-    `,
+        SELECT * FROM product WHERE id = ${product_id}
+        `
+        ,
         (err, row)=>{
             if(err){
                 console.log(err);
