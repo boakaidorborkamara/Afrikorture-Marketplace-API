@@ -14,7 +14,7 @@ router.get('/product', productController.product_list_get);
 router.post('/product/:id', productController.product_detail_get);
 
 
-//Display all products base on a specific category GET
+//Display all products base on a specific sub and main categories GET
 router.get('/product/:main_category/:sub_category', productController.product_per_category_get);
 
 

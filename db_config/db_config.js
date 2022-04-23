@@ -17,30 +17,27 @@ database.serialize(()=>{
     //Product table
     database.run(`
         CREATE TABLE IF NOT EXISTS product (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id INTEGER PRIMARY KEY AUTOINCREMENT, 
             name STRING NOT NULL,
-            description STRING ,
-            date_updated DATE,
-            price FLOAT,
+            description STRING , 
+            date_created STRING,
+            price STRING,
             first_image STRING,
             second_image STRING,
             third_image STRING,
-            brand_id INTEGER,
-            main_category INTEGER,
-            sub_category INTEGER,
+            brand_id INTEGER, 
+            main_category STRING,
+            sub_category STRING,
 
             FOREIGN KEY(brand_id)
-                REFERENCES brand(id)
+                REFERENCES brand(id) 
                 
-            FOREIGN KEY(main_category)
-                REFERENCES main_category(id)
-
-            FOREIGN KEY(sub_category)
-                REFERENCES sub_category(id) 
         )
     `,
         //notify that this table was created sucessfully 
-        ()=>{console.log('Product table created')}
+        (err)=>{
+            console.log('Product table created')
+        }
     );
 
     //Vendor table
