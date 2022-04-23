@@ -11,15 +11,15 @@ router.get('/product', productController.product_list_get);
 
 
 //Display details about a specific product on GET
-router.post('/product/:id', productController.product_detail_get);
-
-
-//Display all products base on a specific sub and main categories GET
-router.get('/product/:main_category/:sub_category', productController.product_per_category_get);
-
-
-//Display details about a specific product on GET
 router.get('/product/:id', productController.product_detail_get);
+
+
+//Display all products base on main categories GET
+router.get('/product/:main_category', productController.product_per_category_get);
+
+
+//Display all products base on sub and main categories GET
+router.get('/product/:main_category/:sub_category', productController.product_per_categories_get);
 
 
 //Create a new poduct on POST

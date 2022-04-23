@@ -29,12 +29,38 @@ exports.product_list_get = (req,res)=>{
 };
 
 
-//Display existing products by category on GET
+//Display existing products by main category on GET
 exports.product_per_category_get = (req, res)=>{
 
     //get user input
     let result;
-    let categories = req.params;
+    let main_category = req.params['main_category'];
+    console.log(main_category);
+
+    //query database
+    db.all(
+        `SELECT * FROM product
+         WHERE main_category = "${main_category}"`,
+        (err, row)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
+  
+            result = row;
+            res.send(result);
+
+        }
+    )
+
+}
+
+
+//Display existing products by categories on GET
+exports.product_per_categories_get = (req, res)=>{
+
+    //get user input
+    let result;
     let main_category = req.params['main_category'];
     let sub_category = req.params['sub_category'];
     console.log(main_category,sub_category);
@@ -87,30 +113,34 @@ exports.product_detail_get = (req, res)=>{
 
 //Handle creation of a new product on POST
 exports.product_create_post = (req, res)=>{
-    db.run(
-        `INSERT INTO product(
-            name,
-            description,
-            date_created,
-            price,
-            first_image,
-            brand_id,
-            main_category,
-            sub_category
-        )
-        VALUES(
-            "Kiah Slippers",
-            "Made with leather",
-            "Jan 15 2023",
-            "50",
-            "https://www.ipanemasouthafrica.com/images/large/ipanemasouthafrica/Ipanema%20Gadot%20Womens%20Brown%20Black%20San%20620_ZOOM.jpg",
-            "1",
-            "female",
-            "footwear"
-            )
-        `
-    )
-    res.send("Working on creation of new products")
+
+    let new_product = req.params;
+    console.log(new_product);
+
+    // db.run(
+    //     `INSERT INTO product(
+    //         name,
+    //         description,
+    //         date_created,
+    //         price,
+    //         first_image,
+    //         brand_id,
+    //         main_category,
+    //         sub_category
+    //     )
+    //     VALUES(
+    //         "Kiah Slippers",
+    //         "Made with leather",
+    //         "Jan 15 2023",
+    //         "50",
+    //         "https://www.ipanemasouthafrica.com/images/large/ipanemasouthafrica/Ipanema%20Gadot%20Womens%20Brown%20Black%20San%20620_ZOOM.jpg",
+    //         "1",
+    //         "female",
+    //         "footwear"
+    //         )
+    //     `
+    // )
+    res.send(new_product);
 };
 
 
