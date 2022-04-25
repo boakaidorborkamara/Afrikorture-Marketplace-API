@@ -48,7 +48,7 @@ exports.product_per_category_get = (req, res)=>{
             }
   
             result = row;
-            res.send(result);
+            res.send({data:result});
 
         }
     )
