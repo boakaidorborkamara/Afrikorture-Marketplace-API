@@ -21,6 +21,6 @@ router.post('/brand/create', BrandController.brand_create);
 //Update an existing brand
 router.put('/brand/:id', BrandController.brand_update);
 
-
+ 
 
 module.exports = router;

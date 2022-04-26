@@ -23,7 +23,9 @@ exports.brand_detail = (req,res)=>{
 
 //Handle creation of a new brand on POST.
 exports.brand_create = (req, res)=>{
-    res.send("Working on creating a new brand");
+    console.log(req.body);
+    console.log(req.url)
+    res.send({send_data: req.body});
 };
 
 //Handle Brand delete on POST.
