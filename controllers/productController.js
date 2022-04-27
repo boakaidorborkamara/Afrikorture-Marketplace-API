@@ -36,7 +36,7 @@ exports.product_per_category_get = (req, res)=>{
     let result;
     let main_category = req.params['main_category'];
     console.log(main_category);
-
+ 
     //query database
     db.all(
         `SELECT * FROM product
@@ -72,7 +72,7 @@ exports.product_per_categories_get = (req, res)=>{
          AND sub_category = "${sub_category}"`,
         (err, row)=>{
             if(err){
-                console.log(err);
+                console.log(err);women-accessories
                 return;
             }
   

@@ -1,5 +1,6 @@
 //require modules
 const express = require('express');
+const cors = require('cors');
 
 
 //connect to database
@@ -9,6 +10,7 @@ const db = require('./db_config/db_config');
 //create express app
 const app = express();
 app.use(express.urlencoded({urlencoded:true}));
+app.use(cors);
 
 
 
