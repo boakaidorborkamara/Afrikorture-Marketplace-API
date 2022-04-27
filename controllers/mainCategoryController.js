@@ -1,6 +1,22 @@
 //create database connection
 const db = require('../db_config/db_config');
 
+
+exports.main_category_get = function(req,res){
+    db.all(
+        `SELECT * FROM main_category`,(err,row)=>{
+            if(err){
+                console.log(err);
+                return;
+            }
+
+            console.log(row);
+            res.send(row);
+        }
+    )
+}
+
+
 exports.main_category_create = function(req,res){
     //create women category
     db.run(`
